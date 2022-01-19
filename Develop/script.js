@@ -18,6 +18,11 @@ function generatePassword () {
   var confirmNumber = confirm("Would you like to use numbers in your password? Ok = Yes | Cancel = No");
   var confirmSpecial = confirm("Would you like to use special characters in your password? Ok = Yes | Cancel = No");
 
+  if (!confirmLowercase && !confirmUppercase && !confirmNumber && !confirmSpecial) {
+    alert("Please select at least one condition for your password.");
+    generatePassword();
+  }
+  
 };
 
 
