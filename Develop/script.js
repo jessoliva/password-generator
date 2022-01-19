@@ -27,33 +27,31 @@ function generatePassword () {
 
   // Ask user to confirm conditions
   var confirmLowercase = confirm('Would you like to use lowercase letters in your password? Ok = Yes | Cancel = No');
+  var confirmUppercase = confirm('Would you like to use uppercase letters in your password? Ok = Yes | Cancel = No');
+  var confirmNumber = confirm('Would you like to use numbers in your password? Ok = Yes | Cancel = No');
+  var confirmSpecial = confirm('Would you like to use special characters in your password? Ok = Yes | Cancel = No');
+
+  // If user confirms condition, push condition array into userSelCha and push random character into userSelPass
   if (confirmLowercase) {
-    // If condition confirmed, push passAlphabet array into userSelCha array
     userSelCha.push(...passAlphabet);
     // To ensure at least 1 character of each condition is included in the password
     numSel++;
     userSelPass.push(random(passAlphabet));
   }
 
-  var confirmUppercase = confirm('Would you like to use uppercase letters in your password? Ok = Yes | Cancel = No');
   if (confirmUppercase) {
-    // If condition confirmed, push uppercase version of passAlphabet array into userSelCha array
     userSelCha.push(...passAlphabet.toUpperCase()); 
     numSel++;
     userSelPass.push(random(passAlphabet.toUpperCase()));
   }
   
-  var confirmNumber = confirm('Would you like to use numbers in your password? Ok = Yes | Cancel = No');
   if (confirmNumber) {
-    // If condition confirmed, push passNumber array into userSelCha array
     userSelCha.push(...passNumber);
     numSel++;
     userSelPass.push(random(passNumber));
   }
 
-  var confirmSpecial = confirm('Would you like to use special characters in your password? Ok = Yes | Cancel = No');
   if (confirmSpecial) {
-    // If condition confirmed, push passSpecial array into userSelCha array
     userSelCha.push(...passSpecial);
     numSel++;
     userSelPass.push(random(passSpecial));
@@ -67,9 +65,7 @@ function generatePassword () {
 
   // Grab a random character from userSelChar array and push into userSelPass array, loop confirmLength number times
   for (let i = 0; i < confirmLength-numSel; i++) {
-    userSelPass.push(random(userSelCha));      
-
-    console.log('password characters include ', userSelPass.join(' '));
+    userSelPass.push(random(userSelCha));
   }
 
   // Call shuffle function to shuffle userSelPass array
@@ -81,7 +77,7 @@ function generatePassword () {
 
 // Select a random index of an array and return value
 function random (randArray) {
-  var value = randArray[Math.floor(Math.random()*randArray.length)]; //random selected index of array = [Math.floor(Math.random()*array.length)]
+  var value = randArray[Math.floor(Math.random()*randArray.length)];
   return value;
 };
 
