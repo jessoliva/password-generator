@@ -19,7 +19,6 @@ function generatePassword () {
 
   // If user does not select a number --> 8 <= password length <= 128 --> ask again
   if (confirmLength >= 8 && confirmLength <= 128) {
-    console.log('User selected a password length = ' + confirmLength);
   }
   else {
     alert('Please enter a valid response.');
@@ -31,45 +30,33 @@ function generatePassword () {
   if (confirmLowercase) {
     // If condition confirmed, push passAlphabet array into userSelCha array
     userSelCha.push(...passAlphabet);
-    console.log('userSelCha array = ' + userSelCha);
-
     // To ensure at least 1 character of each condition is included in the password
     numSel++;
     userSelPass.push(random(passAlphabet));
-    console.log('userSelPass array = ' + userSelPass);
   }
 
   var confirmUppercase = confirm('Would you like to use uppercase letters in your password? Ok = Yes | Cancel = No');
   if (confirmUppercase) {
     // If condition confirmed, push uppercase version of passAlphabet array into userSelCha array
     userSelCha.push(...passAlphabet.toUpperCase()); 
-    console.log('userSelCha array = ' + userSelCha);
-
     numSel++;
     userSelPass.push(random(passAlphabet.toUpperCase()));
-    console.log('userSelPass array = ' + userSelPass);
   }
   
   var confirmNumber = confirm('Would you like to use numbers in your password? Ok = Yes | Cancel = No');
   if (confirmNumber) {
     // If condition confirmed, push passNumber array into userSelCha array
     userSelCha.push(...passNumber);
-    console.log('userSelCha array = ' + userSelCha);
-
     numSel++;
     userSelPass.push(random(passNumber));
-    console.log('userSelPass array = ' + userSelPass);
   }
 
   var confirmSpecial = confirm('Would you like to use special characters in your password? Ok = Yes | Cancel = No');
   if (confirmSpecial) {
     // If condition confirmed, push passSpecial array into userSelCha array
     userSelCha.push(...passSpecial);
-    console.log('userSelCha array = ' + userSelCha);
-
     numSel++;
     userSelPass.push(random(passSpecial));
-    console.log('userSelPass array = ' + userSelPass);
   }
 
   // If user does not select at least one password character condition --> ask again
@@ -85,12 +72,8 @@ function generatePassword () {
     console.log('password characters include ', userSelPass.join(' '));
   }
 
-  console.log('User password is ' + userSelPass.join(''));
-
   // Call shuffle function to shuffle userSelPass array
   shuffle(userSelPass);
-
-  console.log('Final user password is ' + userSelPass.join(''));
 
   // Return shuffled userSelPass array converted to string
   return userSelPass.join("");
