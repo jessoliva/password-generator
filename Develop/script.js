@@ -3,8 +3,8 @@ var generateBtn = document.querySelector('#generate');
 
 // Arrays that hold password character options
 var passAlphabet = 'abcdefghijklmnopqrstuvwxyz'; 
-var passNumber = '1234567890';
-var passSpecial = '!@#$%^&*()_+=[]~"\\';
+var passNumber = '12345678901234567890';
+var passSpecial = '!@#$%^&*()_+=[]~";<>';
 
 function generatePassword () {
   // Empty array to push into password character arrays user confirms
@@ -63,7 +63,7 @@ function generatePassword () {
     generatePassword();
   }
 
-  // Grab a random character from userSelChar array and push into userSelPass array, loop confirmLength number times
+  // Grab a random character from userSelChar array and push into userSelPass array until the number of values userSelPass array has matches confirmLength 
   for (let i = 0; i < confirmLength-numSel; i++) {
     userSelPass.push(random(userSelCha));
   }
