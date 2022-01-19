@@ -6,17 +6,14 @@ var passAlphabet = 'abcdefghijklmnopqrstuvwxyz';
 var passNumber = '1234567890';
 var passSpecial = '!@#$%^&*()_+=[]~"\\';
 
-// Empty array to push into password character arrays user confirms
-var userSelCha = []; 
-
-// Final user password
-var userSelPass = [];
-
-// Counts number of conditions user confirmed
-var numSel = 0;
-
-
 function generatePassword () {
+  // Empty array to push into password character arrays user confirms
+  var userSelCha = []; 
+  // Final user password
+  var userSelPass = [];
+  // Counts number of conditions user confirmed
+  var numSel = 0;
+
   // Convert user entered length to integer
   var confirmLength = parseInt(prompt('How many characters would you like your password to be? Input a number. Cannot be less than 8 or greater than 128.'));
 
@@ -82,7 +79,7 @@ function generatePassword () {
   }
 
   // Grab a random character from userSelChar array and push into userSelPass array, loop confirmLength number times
-  for(let i = 0; i < confirmLength-numSel; i++){
+  for (let i = 0; i < confirmLength-numSel; i++) {
     userSelPass.push(random(userSelCha));      
 
     console.log('password characters include ', userSelPass.join(' '));
@@ -90,6 +87,13 @@ function generatePassword () {
 
   console.log('User password is ' + userSelPass.join(''));
 
+  // Call shuffle function to shuffle userSelPass array
+  shuffle(userSelPass);
+
+  console.log('Final user password is ' + userSelPass.join(''));
+
+  // Return shuffled userSelPass array converted to string
+  return userSelPass.join("");
 };
 
 // Select a random index of an array and return value
@@ -98,17 +102,39 @@ function random (randArray) {
   return value;
 };
 
+// Shuffle userSelPass array with Fisher-Yates Shuffle
+function shuffle(array) {
+  // Index used to shuffle with currentIndex
+  var randomIndex;
 
+  // This condition & currentIndex -- makes shuffle start with the last value 
+  var currentIndex = array.length;
 
+  // While there are remaining elements to shuffle
+  while (currentIndex != 0) {
+
+    // Pick a random remaining element
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    // Subtract 1 from currentIndex value
+    currentIndex--;
+
+    // And swap it with the current element using temp variables
+    var temp1 = array[currentIndex];
+    var temp2 = array[randomIndex];
+    
+    array[currentIndex] = temp2;
+    array[randomIndex] = temp1;
+  };
+  return array;
+};
 
 // Write password to the #password input
-function writePassword() {
+function writePassword() {  
   var password = generatePassword();
   var passwordText = document.querySelector('#password');
 
   passwordText.value = password;
-
-}
+};
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
