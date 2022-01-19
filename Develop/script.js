@@ -30,26 +30,26 @@ function generatePassword () {
   var confirmLowercase = confirm("Would you like to use lowercase letters in your password? Ok = Yes | Cancel = No");
   if (confirmLowercase) {
     userSelCha.push(...passAlphabet);
-    console.log("userSelPass array = " + userSelPass);
+    console.log("userSelCha array = " + userSelCha);
   }
 
   var confirmUppercase = confirm("Would you like to use uppercase letters in your password? Ok = Yes | Cancel = No");
   if (confirmUppercase) {
     // Push uppercase version of passAlphabet array
     userSelCha.push(...passAlphabet.toUpperCase()); 
-    console.log("userSelPass array = " + userSelPass);
+    console.log("userSelCha array = " + userSelCha);
   }
   
   var confirmNumber = confirm("Would you like to use numbers in your password? Ok = Yes | Cancel = No");
   if (confirmNumber) {
     userSelCha.push(...passNumber);
-    console.log("userSelPass array = " + userSelPass);
+    console.log("userSelCha array = " + userSelCha);
   }
 
   var confirmSpecial = confirm("Would you like to use special characters in your password? Ok = Yes | Cancel = No");
   if (confirmSpecial) {
     userSelCha.push(...passSpecial);
-    console.log("userSelPass array = " + userSelPass);
+    console.log("userSelCha array = " + userSelCha);
   }
 
   // If user does not select at least one password character condition --> ask again
@@ -57,6 +57,20 @@ function generatePassword () {
     alert("Please select at least one condition for your password.");
     generatePassword();
   }
+
+  // Grab a random character from userSelChar array and push into userSelPass array, loop confirmLength times
+  for(let i = 0; i < confirmLength; i++){
+    userSelPass.push(random(userSelCha));      
+
+    console.log('password characters include ', userSelPass.join(" "))
+  }
+
+};
+
+// Select a random index of an array and return value
+function random (randArray) {
+  var value = randArray[Math.floor(Math.random()*randArray.length)]; //random selected index of array = [Math.floor(Math.random()*array.length)]
+  return value;
 };
 
 
