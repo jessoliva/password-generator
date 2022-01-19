@@ -50,7 +50,7 @@ GIVEN I need a new, secure password
 
 [Password Generator](https://jessoliva.github.io/password-generator/)
 
-<img src="develop/images/app-mockup.png" alt="mock up" width="60%">
+<img src="assets/images/app-mockup.png" alt="mock up" width="60%">
 
 ## JavaScript Code
 
@@ -58,7 +58,7 @@ To build this application, I wrote code that overall does the following:
 - Asks the user to input a password length meeting this criteria: 8 ≤ password length ≤ 128
     - If criteria is not met, user is alerted and asked to input a valid value
     <p align="left" width="100%">
-    &emsp;&emsp;&emsp;<img src="develop/images/confirmLength.png" alt="for loop code" width="60%" align="top"> 
+    &emsp;&emsp;&emsp;<img src="assets/images/confirmLength.png" alt="for loop code" width="60%" align="top"> 
     </p>
 
 - Asks user if they want their password to include: lowercase letters, uppercase letters, numbers, special characters
@@ -69,26 +69,26 @@ To build this application, I wrote code that overall does the following:
             - userSelPass will hold the user password
     - If user does not select any conditions, user is alerted that at least one condition must be selected
 <p align="left" width="100%">
-&emsp;&emsp;&emsp;<img src="develop/images/confirmConditions.png" alt="for loop code" width="75%" align="top"> 
+&emsp;&emsp;&emsp;<img src="assets/images/confirmConditions.png" alt="for loop code" width="75%" align="top"> 
 </p>
 
 <p align="left" width="100%">
-&emsp;&emsp;&emsp;<img src="develop/images/confirmConditions2.png" alt="for loop code" width="75%" align="top"> 
+&emsp;&emsp;&emsp;<img src="assets/images/confirmConditions2.png" alt="for loop code" width="75%" align="top"> 
 </p>
 
 <p align="left" width="100%">
-&emsp;&emsp;&emsp;<img src="develop/images/confirmConditions3.png" alt="for loop code" width="75%" align="top"> 
+&emsp;&emsp;&emsp;<img src="assets/images/confirmConditions3.png" alt="for loop code" width="75%" align="top"> 
 </p>
 
 - Loops through the userSelCha array which holds all the characters from the arrays linked to the conditions confirmed by the user. For loop retrieves a random character from that array and adds it to the userSelPass array until the password length the user input is reached
 <p align="left" width="100%">
-&emsp;&emsp;&emsp;<img src="develop/images/for-loop.png" alt="for loop code" width="75%" align="top"> 
+&emsp;&emsp;&emsp;<img src="assets/images/for-loop.png" alt="for loop code" width="75%" align="top"> 
 </p>
 
 - Uses the Fisher-Yates shuffle to shuffle the userSelPass array and return a final password for the user
 
 <p align="left" width="100%">
-&emsp;&emsp;&emsp;<img src="develop/images/shuffle.png" alt="for loop code" width="60%" align="top"> 
+&emsp;&emsp;&emsp;<img src="assets/images/shuffle.png" alt="for loop code" width="60%" align="top"> 
 </p>
 
 ## Challenges
@@ -118,12 +118,12 @@ But! I had fun learning about the Fisher-Yates shuffle and wanted to use it.
 
 - My Arrays
 <p align="left" width="100%">
-&emsp;&emsp;&emsp;<img src="develop/images/array1.png" alt="for loop code" width="40%" align="top"> 
+&emsp;&emsp;&emsp;<img src="assets/images/array1.png" alt="for loop code" width="40%" align="top"> 
 </p>
 
 - Alternate Arrays
 <p align="left" width="100%">
-&emsp;&emsp;&emsp;<img src="develop/images/array2.png" alt="for loop code" width="40%" align="top"> 
+&emsp;&emsp;&emsp;<img src="assets/images/array2.png" alt="for loop code" width="40%" align="top"> 
 </p>
 
 ### Alternate Code
