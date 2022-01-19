@@ -13,6 +13,11 @@ function generatePassword () {
     generatePassword();
   }
 
+  var confirmLowercase = confirm("Would you like to use lowercase letters in your password? Ok = Yes | Cancel = No");
+  var confirmUppercase = confirm("Would you like to use uppercase letters in your password? Ok = Yes | Cancel = No");
+  var confirmNumber = confirm("Would you like to use numbers in your password? Ok = Yes | Cancel = No");
+  var confirmSpecial = confirm("Would you like to use special characters in your password? Ok = Yes | Cancel = No");
+
 };
 
 
